@@ -54,7 +54,18 @@
       box-shadow: 0 4px 20px rgba(0,0,0,0.4);
       padding: 14px 0;
       border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      opacity: 0;
+      transform: translateY(-20px);
+      animation: fadeDown 4s ease forwards;
     }
+
+    @keyframes fadeDown {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
 
     nav ul {
       list-style: none;
@@ -218,6 +229,7 @@ Ce cadre académique rigoureux m’a permis de consolider mon raisonnement analy
   </footer>
 </body>
 </html>
+
 
 
 
