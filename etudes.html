@@ -266,6 +266,29 @@ header {
     footer a:hover {
       text-decoration: underline;
     }
+.lang-switch {
+  text-align: right;
+  margin: 10px 20px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #fff;
+}
+
+.lang-switch a {
+  text-decoration: none;
+  color: #f0f0f0;
+  transition: color 0.3s ease;
+  margin: 0 5px;
+}
+
+.lang-switch a:hover {
+  color: #ffd700;
+}
+
+.lang-switch a.active {
+  color: #ffd700;
+  cursor: default;
+}
 
   </style>
 </head>
@@ -287,6 +310,11 @@ header {
       <div class="slide">
         <img src="https://upload.wikimedia.org/wikipedia/fr/5/53/Logo_EDHEC_Business_School.svg" alt="Image 1">
         <div class="caption">
+          <div class="lang-switch">
+  <a href="/index.html">🇫🇷 Français</a> |
+  <a href="/en/index.html">🇬🇧 English</a>
+</div>
+
           <h2>EDHEC BUSINESS SCHOOL</h2>
         </div>
       </div>
@@ -382,5 +410,6 @@ L’expérience m’a aussi appris la discipline et la constance dans l’effort
 
 </body>
 </html>
+
 
 
