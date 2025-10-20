@@ -21,61 +21,107 @@
       position: fixed;
       top: 0; left: 0;
       width: 100%; height: 100%;
-      background-color: rgba(0,0,0,0.5);
+      background-color: rgba(0,0,0,0.55);
       z-index: -1;
     }
-
-    header {
+    header, footer {
       text-align: center;
-      padding: 60px 20px 20px;
-    }
-
-    header img.logo {
-      width: 200px;
-      height: 130px;
-      object-fit: contain;
-      border-radius: 10px;
-      padding: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.4);
-    }
-
-    header h1 {
-      margin-top: 20px;
-      font-size: 32px;
-      color: #fff;
-    }
-
-    section {
       padding: 40px 20px;
-      text-align: center;
+      background-color: rgba(0,0,0,0.8);
+    }
+    section {
+      padding: 50px 20px;
       max-width: 900px;
       margin: 0 auto;
+      text-align: center;
     }
-
-    section h2 {
-      color: #fff;
-      margin-bottom: 10px;
-      font-size: 26px;
-    }
-
+    h1, h2 { color: #fff; }
     p {
-      line-height: 1.6;
+      line-height: 1.7;
       margin-bottom: 20px;
     }
-
-    ul {
-      list-style-type: square;
-      text-align: left;
-      max-width: 600px;
-      margin: 20px auto;
-      line-height: 1.8;
-      font-size: 16px;
+    footer a {
+      color: #007bff;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(15, 15, 20, 0.45);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
     }
 
-    ul li {
-      margin-bottom: 8px;
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      padding: 0;
+      gap: 45px;
     }
 
+    nav ul li {
+      position: relative;
+    }
+
+    nav ul li a {
+      color: #e0e0e0;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 17px;
+      letter-spacing: 0.7px;
+      padding: 8px 0;
+      transition: all 0.3s ease;
+    }
+
+    /* Ligne bleue animée sous les liens */
+    nav ul li a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0%;
+      height: 2px;
+      background: linear-gradient(90deg, #00bfff, #007bff);
+      box-shadow: 0 0 8px #00bfff;
+      transition: width 0.4s ease;
+      border-radius: 4px;
+    }
+
+    nav ul li a:hover::after {
+      width: 100%;
+    }
+
+    /* Effet glow au survol */
+    nav ul li a:hover {
+      color: #00bfff;
+      text-shadow: 0 0 8px #00bfff;
+    }
+
+    /* Lien actif (page actuelle) */
+    nav ul li a.active {
+      color: #00bfff;
+      text-shadow: 0 0 8px #00bfff;
+    }
+    nav ul li a.active::after {
+      width: 100%;
+    }
+
+    /* Responsive */
+    @media (max-width: 750px) {
+      nav ul {
+        flex-direction: column;
+        gap: 20px;
+        background: rgba(0, 0, 0, 0.7);
+        padding: 20px 0;
+      }
+    }
     .photos {
       display: flex;
       flex-wrap: wrap;
@@ -97,29 +143,26 @@
       transform: scale(1.05);
     }
 
-    footer {
-      background-color: rgba(0,0,0,0.8);
+    header {
       text-align: center;
-      padding: 30px 20px;
-      margin-top: 40px;
-    }
-
-    footer a {
-      color: #007bff;
-      text-decoration: none;
-      margin: 0 10px;
-    }
-
-    footer a:hover {
-      text-decoration: underline;
+      padding: 100px 20px;
     }
   </style>
 </head>
 
 <body>
-  <!-- ===== HEADER ===== -->
+    <nav>
+    <ul>
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="etudes.html" class="active">Études</a></li>
+      <li><a href="engagements.html">Engagements</a></li>
+      <li><a href="travaux.html">Travaux</a></li>
+      <li><a href="sports.html">Sports</a></li>
+      <li><a href="contacts.html">Contact</a></li>
+    </ul>
+  </nav>
   <header>
-    <img class="logo" src="https://upload.wikimedia.org/wikipedia/fr/thumb/f/fa/Logo-univ-nice-cote-dazur.svg/2560px-Logo-univ-nice-cote-dazur.svg.png" alt="Université Côte d’Azur">
+    <img class="logo" src="https://upload.wikimedia.org/wikipedia/fr/thumb/f/fa/Logo-univ-nice-cote-dazur.svg/2560px-Logo-univ-nice-cote-dazur.svg.png" width="20%" alt="Université Côte d’Azur">
     <h1>Certificat Mathematiques pour l'ingenierie</h1>
   </header>
 
@@ -182,4 +225,5 @@
   </footer>
 </body>
 </html>
+
 
