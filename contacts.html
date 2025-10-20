@@ -158,6 +158,30 @@
       text-align: center;
       padding: 100px 20px;
     }
+    .lang-switch {
+  text-align: right;
+  margin: 10px 20px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #fff;
+}
+
+.lang-switch a {
+  text-decoration: none;
+  color: #f0f0f0;
+  transition: color 0.3s ease;
+  margin: 0 5px;
+}
+
+.lang-switch a:hover {
+  color: #ffd700;
+}
+
+.lang-switch a.active {
+  color: #ffd700;
+  cursor: default;
+}
+
   </style>
 </head>
 <body>
@@ -175,6 +199,10 @@
 
   <header>
     <h1>Contact</h1>
+        <div class="lang-switch">
+<link rel="alternate" hreflang="fr" href="index.html">
+<link rel="alternate" hreflang="en" href="en/index.html">
+    </div>
   </header>
 
   <section>
@@ -210,6 +238,7 @@
 
 </body>
 </html>
+
 
 
 
