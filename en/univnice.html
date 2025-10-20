@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" href="visage.png" type="image/png">
+  <meta charset="UTF-8">
+  <title>Nice| Certificate</title>
+  <style>
+    /* ===== Style général ===== */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: white;
+      background-image: url('https://www.hec.edu/sites/default/files/inline-images/conference-societe-generale.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0,0,0,0.50);
+      z-index: -1;
+    }
+    header, footer {
+      text-align: center;
+      padding: 40px 20px;
+      background-color: rgba(0,0,0,0.8);
+    }
+    section {
+      padding: 50px 20px;
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    h1, h2 { color: #fff; }
+    p {
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+    footer a {
+      color: #007bff;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(15, 15, 20, 0.45);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      opacity: 0;
+      transform: translateY(-20px);
+      animation: fadeDown 4s ease forwards;
+    }
+
+    @keyframes fadeDown {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      padding: 0;
+      gap: 45px;
+    }
+
+    nav ul li {
+      position: relative;
+    }
+
+    nav ul li a {
+      color: #e0e0e0;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 17px;
+      letter-spacing: 0.7px;
+      padding: 8px 0;
+      transition: all 0.3s ease;
+    }
+
+    /* Ligne bleue animée sous les liens */
+    nav ul li a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0%;
+      height: 2px;
+      background: linear-gradient(90deg, #00bfff, #007bff);
+      box-shadow: 0 0 8px #00bfff;
+      transition: width 0.4s ease;
+      border-radius: 4px;
+    }
+
+    nav ul li a:hover::after {
+      width: 100%;
+    }
+
+    /* Effet glow au survol */
+    nav ul li a:hover {
+      color: #00bfff;
+      text-shadow: 0 0 8px #00bfff;
+    }
+
+    /* Lien actif (page actuelle) */
+    nav ul li a.active {
+      color: #00bfff;
+      text-shadow: 0 0 8px #00bfff;
+    }
+    nav ul li a.active::after {
+      width: 100%;
+    }
+
+    /* Responsive */
+    @media (max-width: 750px) {
+      nav ul {
+        flex-direction: column;
+        gap: 20px;
+        background: rgba(0, 0, 0, 0.7);
+        padding: 20px 0;
+      }
+    }
+    .photos {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .photos img {
+      width: 300px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(54,51,51,0.5);
+      transition: transform 0.3s ease;
+    }
+
+    .photos img:hover {
+      transform: scale(1.05);
+    }
+
+    header {
+      text-align: center;
+      padding: 100px 20px;
+    }
+    .lang-switch {
+  text-align: right;
+  margin: 10px 20px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #fff;
+}
+
+.lang-switch a {
+  text-decoration: none;
+  color: #f0f0f0;
+  transition: color 0.3s ease;
+  margin: 0 5px;
+}
+
+.lang-switch a:hover {
+  color: #ffd700;
+}
+
+.lang-switch a.active {
+  color: #ffd700;
+  cursor: default;
+}
+
+  </style>
+</head>
+
+<body>
+  <nav>
+    <ul>
+      <li><a href="index.html" >Home</a></li>
+      <li><a href="studies.html" class="active">Studies</a></li>
+      <li><a href="activities.html">Activities</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="sports.html">Sports</a></li>
+      <li><a href="contacts.html">Contact</a></li>
+    </ul>
+  </nav>
+  <header>
+    <img class="logo" src="https://upload.wikimedia.org/wikipedia/fr/thumb/f/fa/Logo-univ-nice-cote-dazur.svg/2560px-Logo-univ-nice-cote-dazur.svg.png" width="20%" alt="Université Côte d’Azur">
+    <h1>Certificate in Mathematics for Engineering</h1>
+        <div class="lang-switch">
+  <a href="index.html">🇫🇷 Français</a> |
+  <a href="en/index.html" class="active">🇬🇧 English</a>
+</div>
+  </header>
+
+  <!-- ===== CONTENU PRINCIPAL ===== -->
+  <section>
+  
+
+
+</p>
+<h1>Courses Studied</h1>
+
+<h2>Fundamental Mathematics and Applications</h2>
+<ol>
+  <li>Advanced Differential and Integral Calculus</li>
+  <li>Ordinary and Partial Differential Equations</li>
+  <li>Complex Analysis and Integral Transforms</li>
+  <li>Introduction to Stochastic Equations</li>
+</ol>
+
+<h2>Modeling and Engineering</h2>
+<ol>
+  <li>Numerical Methods and Error Analysis</li>
+  <li>Simulation and Modeling of Physical Systems</li>
+  <li>Process Optimization and Control</li>
+  <li>Mathematical Applications in Engineering and Finance</li>
+</ol>
+
+<h2>Computing Tools and Scientific Computing</h2>
+<ol>
+  <li>Python for Scientific Computing</li>
+  <li>Matlab and Simulation Software</li>
+  <li>Introduction to Parallel Programming</li>
+  <li>Use of Computational Libraries (NumPy, SciPy)</li>
+</ol>
+
+<h2>Complementary Skills</h2>
+<ol>
+  <li>Scientific Writing and Presentation</li>
+  <li>Technical Communication in English</li>
+  <li>Collaborative Work on Interdisciplinary Projects</li>
+</ol>
+    
+    <div class="photos">
+      <img src="https://univ-cotedazur.fr/medias/photo/sophiatech_1634907700363-jpg?ID_FICHE=1108291" alt="Photo de l'établissement ou d'un événement">
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <p>
+    <p>&copy; 2025 Elie AMIEN</p>
+      <a href="index.html">Home</a> |
+      <a href="contacts.html">Contact</a>|
+      <a href="studies.html">Studies</a> |
+      <a href="projects.html">Projects</a>|
+      <a href="activities.html">Activities</a>
+    </p>
+  </footer>
+</body>
+</html>

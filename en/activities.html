@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" href="visage.png" type="image/png">
+  <meta charset="UTF-8">
+  <title>Commitments & Experiences</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: white;
+      background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRf5sGwB8xUN-5Zj0Mbl2valJr52Ni_eTHx5g&s');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0,0,0,0.55);
+      z-index: -1;
+    }
+    header, footer {
+      text-align: center;
+      padding: 40px 20px;
+      background-color: rgba(0,0,0,0.8);
+    }
+    section {
+      padding: 50px 20px;
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    h1, h2 { color: #fff; }
+    p {
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+    footer a {
+      color: #007bff;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(15, 15, 20, 0.45);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      opacity: 0;
+      transform: translateY(-20px);
+      animation: fadeDown 4s ease forwards;
+    }
+
+    @keyframes fadeDown {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      padding: 0;
+      gap: 45px;
+    }
+
+    nav ul li {
+      position: relative;
+    }
+
+    nav ul li a {
+      color: #e0e0e0;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 17px;
+      letter-spacing: 0.7px;
+      padding: 8px 0;
+      transition: all 0.3s ease;
+    }
+
+    /* Ligne bleue animée sous les liens */
+    nav ul li a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0%;
+      height: 2px;
+      background: linear-gradient(90deg, #00bfff, #007bff);
+      box-shadow: 0 0 8px #00bfff;
+      transition: width 0.4s ease;
+      border-radius: 4px;
+    }
+
+    nav ul li a:hover::after {
+      width: 100%;
+    }
+
+    /* Effet glow au survol */
+    nav ul li a:hover {
+      color: #00bfff;
+      text-shadow: 0 0 8px #00bfff;
+    }
+
+    /* Lien actif (page actuelle) */
+    nav ul li a.active {
+      color: #00bfff;
+      text-shadow: 0 0 8px #00bfff;
+    }
+    nav ul li a.active::after {
+      width: 100%;
+    }
+
+    /* Responsive */
+    @media (max-width: 750px) {
+      nav ul {
+        flex-direction: column;
+        gap: 20px;
+        background: rgba(0, 0, 0, 0.7);
+        padding: 20px 0;
+      }
+    }
+
+    header {
+      text-align: center;
+      padding: 100px 20px;
+    }
+    .lang-switch {
+  text-align: right;
+  margin: 10px 20px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #fff;
+}
+
+.lang-switch a {
+  text-decoration: none;
+  color: #f0f0f0;
+  transition: color 0.3s ease;
+  margin: 0 5px;
+}
+
+.lang-switch a:hover {
+  color: #ffd700;
+}
+
+.lang-switch a.active {
+  color: #ffd700;
+  cursor: default;
+}
+
+  </style>
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="index.html" >Home</a></li>
+      <li><a href="studies.html">Studies</a></li>
+      <li><a href="activities.html" class="active">Activities</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="sports.html">Sports</a></li>
+      <li><a href="contacts.html">Contact</a></li>
+    </ul>
+  </nav>
+
+<header>
+  <h1>Commitments & Experiences</h1>
+      <div class="lang-switch">
+  <a href="index.html">🇫🇷 Français</a> |
+  <a href="en/index.html" class="active">🇬🇧 English</a>
+</div>
+</header>
+
+<section>
+  <h2>Associative Involvement — EDHEC Inspiring Women (EIW)
+</h2>
+  <p>
+My associative commitment is expressed through my involvement with EDHEC Inspiring Women (EIW), an organization dedicated to raising awareness of gender equality and women’s rights.
+Through this participation, I discovered the value of structured collective work built around projects with strong social impact — including conferences, panel discussions, awareness campaigns, and inter-association collaborations.
+ </p>
+  <p>
+Being an active member of EIW has allowed me to combine organization, communication, and strategic analysis while contributing to the visibility of a vital cause.
+This commitment requires the same rigor as any complex project: planning, performance measurement, adaptability to diverse contexts, and the pursuit of efficiency.
+  </p>
+  <p>
+Beyond its associative dimension, this experience taught me to connect reflection, method, and action, to understand group dynamics, and to use practical tools to turn ideas into measurable initiatives.
+It is this approach — both human and analytical — that I strive to apply in every field in which I operate.
+    <br> <br><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRf5sGwB8xUN-5Zj0Mbl2valJr52Ni_eTHx5g&s" alt="EIW LOGO">
+  </p>
+
+<br><br>
+  <p>
+    <h2>Complétude — Private Tutor in Mathematics and Physics (2025)
+</h2>
+
+</p>
+<p>My experience at Complétude reflects a rigorous approach to the transmission of scientific knowledge, focused on structured reasoning and methodological efficiency.
+I provided individualized tutoring in mathematics and physics, primarily aimed at preparing students for the French Baccalauréat, with particular emphasis on problem modeling and time management during problem-solving.
+</p>
+<p>
+The teaching focused on a detailed analysis of each student’s cognitive needs, allowing for the adaptation of pedagogical methods to optimize progress.
+This approach led me to strengthen logical reasoning abilities, sequential information processing, and the systematic resolution of complex equations.
+
+Beyond teaching, this role enhanced my skills in technical communication, performance evaluation, and adaptive planning — essential abilities in any quantitative analysis or applied research activity.
+
+  
+  <br> <br><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAjlz5huuI5HaH5_wzJz89ciHz7nnHwhAd4g&s" alt="Completude Logo">
+</p> <br> <br><br>
+<p>
+  <h2>EDHEC FC — Registered Player & University Competitor (2025 – Present)
+</h2>
+  <p>As a member of the EDHEC football club, I take part in national university competitions as a registered player, including the French University Cup and the Saint-Gobain Tournament.
+This experience has allowed me to develop a strong sense of collective strategy, consistency in effort, and the ability to perform under pressure.
+
+</p>
+<p>
+Evolving within a demanding team and competing against opponents from top universities has taught me to combine discipline, competitiveness, and team cohesion — values that shape the way I approach every project with commitment and precision.
+ </p>
+  <br> <img src="edhecfc.png" style=: width=30%" alt="edhecfc Logo">
+</section>
+
+<footer>
+  <p>&copy; 2025 Elie AMIEN</p>
+  <p><a href="index.html">Home</a> | <a href="studies.html">Studies</a> | <a href="projects.html">Projects</a> | <a href="contacts.html">Contacts</a></p>
+</footer>
+
+</body>
+</html>

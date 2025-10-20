@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" href="visage.png" type="image/png">
+  <meta charset="UTF-8">
+  <title>Preparatory Classes</title>
+  <style>
+    /* ===== Style général ===== */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: white;
+      background-image: url('https://www.hec.edu/sites/default/files/inline-images/conference-societe-generale.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0,0,0,0.55);
+      z-index: -1;
+    }
+    header, footer {
+      text-align: center;
+      padding: 40px 20px;
+      background-color: rgba(0,0,0,0.8);
+    }
+    section {
+      padding: 50px 20px;
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    h1, h2 { color: #fff; }
+    p {
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+    footer a {
+      color: #007bff;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(15, 15, 20, 0.45);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      opacity: 0;
+      transform: translateY(-20px);
+      animation: fadeDown 4s ease forwards;
+    }
+
+    @keyframes fadeDown {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      padding: 0;
+      gap: 45px;
+    }
+
+    nav ul li {
+      position: relative;
+    }
+
+    nav ul li a {
+      color: #e0e0e0;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 17px;
+      letter-spacing: 0.7px;
+      padding: 8px 0;
+      transition: all 0.3s ease;
+    }
+
+    /* Ligne bleue animée sous les liens */
+    nav ul li a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0%;
+      height: 2px;
+      background: linear-gradient(90deg, #00bfff, #007bff);
+      box-shadow: 0 0 8px #00bfff;
+      transition: width 0.4s ease;
+      border-radius: 4px;
+    }
+
+    nav ul li a:hover::after {
+      width: 100%;
+    }
+
+    /* Effet glow au survol */
+    nav ul li a:hover {
+      color: #00bfff;
+      text-shadow: 0 0 8px #00bfff;
+    }
+
+    /* Lien actif (page actuelle) */
+    nav ul li a.active {
+      color: #00bfff;
+      text-shadow: 0 0 8px #00bfff;
+    }
+    nav ul li a.active::after {
+      width: 100%;
+    }
+
+    /* Responsive */
+    @media (max-width: 750px) {
+      nav ul {
+        flex-direction: column;
+        gap: 20px;
+        background: rgba(0, 0, 0, 0.7);
+        padding: 20px 0;
+      }
+    }
+    .photos {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .photos img {
+      width: 300px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+      transition: transform 0.3s ease;
+    }
+
+    .photos img:hover {
+      transform: scale(1.05);
+    }
+
+    header {
+      text-align: center;
+      padding: 100px 20px;
+    }
+    .lang-switch {
+  text-align: right;
+  margin: 10px 20px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #fff;
+}
+
+.lang-switch a {
+  text-decoration: none;
+  color: #f0f0f0;
+  transition: color 0.3s ease;
+  margin: 0 5px;
+}
+
+.lang-switch a:hover {
+  color: #ffd700;
+}
+
+.lang-switch a.active {
+  color: #ffd700;
+  cursor: default;
+}
+
+  </style>
+</head>
+
+<body>
+  <nav>
+    <ul>
+      <li><a href="index.html" >Home</a></li>
+      <li><a href="studies.html" class="active">Studies</a></li>
+      <li><a href="activities.html">Activities</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="sports.html">Sports</a></li>
+      <li><a href="contacts.html">Contact</a></li>
+    </ul>
+  </nav>
+  <!-- ===== HEADER ===== -->
+  <header>
+<img class="logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMrg1NOORj7L_VRpOXicIhUxUyMmg_wl4OOQ&s" width="11%" alt="ESTEM Casablanca">
+    <h1>ESTEM</h1>
+        <div class="lang-switch">
+  <a href="index.html">🇫🇷 Français</a> |
+  <a href="en/index.html" class="active">🇬🇧 English</a>
+</div>
+  </header>
+
+  <!-- ===== CONTENU PRINCIPAL ===== -->
+  <section>
+
+<p>
+The preparatory classes at ESTEM Casablanca formed the foundation of my scientific and analytical approach.  
+This inherently multidisciplinary program allowed me to develop a rigorous understanding of the fundamental sciences — combining mathematical logic, physical modeling, and computational reasoning.
+
+It also helped me acquire strong work discipline, consistent intellectual rigor, and a structured method of analysis.  
+The demanding nature of this curriculum, focused on precision and coherence in reasoning, strengthened my ability to quickly apply advanced mathematical and physical tools to solve a wide range of problems.
+</p>
+
+<h1>Courses Studied</h1>
+
+<h2>Mathematics</h2>
+<ol>
+  <li>Analysis: Differential and Integral Calculus, Series</li>
+  <li>Linear Algebra and Analytic Geometry</li>
+  <li>Probability and Statistics</li>
+  <li>Numerical Methods</li>
+</ol>
+
+<h2>Physics and Engineering Sciences</h2>
+<ol>
+  <li>Mechanics of Systems</li>
+  <li>Thermodynamics and Electricity</li>
+  <li>Waves and Optics</li>
+  <li>Introduction to Modern Physics</li>
+</ol>
+
+<h2>Computer Science and Languages</h2>
+<ol>
+  <li>Introduction to Python and Pandas</li>
+  <li>Foundations of Algorithmics</li>
+  <li>Scientific English and Technical German</li>
+  <li>Scientific Synthesis and Communication</li>
+</ol>
+
+
+ 
+    <div class="photos">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSz-x6NGA05SPXa0Cl4PIZXN94BuT4GEN4L9A&s" alt="Travail d'équipe ou salle de classe">
+      <img src="https://archive.challenge.ma/wp-content/uploads/2017/06/ESTEM.jpg" alt="Photo de l'établissement ou d'un événement">
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <p>&copy; 2025 Elie AMIEN</p>
+    <p>
+      <a href="index.html">Home</a> |
+      <a href="contacts.html">Contact</a>|
+      <a href="studies.html">Studies</a> |
+      <a href="projects.html">Projects</a>|
+      <a href="activities.html">Activities</a>
+    </p>
+  </footer>
+</body>
+</html>
+
+
+
