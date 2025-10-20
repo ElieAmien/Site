@@ -181,7 +181,16 @@
   color: #ffd700;
   cursor: default;
 }
-
+@media screen and (max-width: 768px) {
+  html {
+    transform: scale(1.2);      /* agrandit tout le contenu sur mobile */
+    transform-origin: top center;
+  }
+  body {
+    padding: 20px;
+    overflow-x: hidden;         /* empÃªche le scroll horizontal */
+  }
+}
   </style>
 </head>
 
@@ -261,5 +270,6 @@ Consistently listed among the top global universities in mathematics, UniversitÃ
 </body>
 
 </html>
+
 
 
