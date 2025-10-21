@@ -220,11 +220,42 @@ header.hero p{opacity:.95;margin:0 auto;}
 body, div, section, article {
   user-select: none;
 }
+.menu-toggle {
+  display: none;
+  position: fixed;
+  top: 12px;
+  right: 18px;
+  font-size: 26px;
+  background: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 10px;
+  z-index: 1100;
+  cursor: pointer;
+}
+
+@media (max-width: 750px) {
+  nav ul {
+    display: none; /* caché par défaut sur mobile */
+    flex-direction: column;
+    gap: 20px;
+    background: rgba(0, 0, 0, 0.85);
+    padding: 20px 0;
+  }
+  nav ul.active {
+    display: flex; /* affiché quand on clique */
+  }
+  .menu-toggle {
+    display: block;
+  }
+}
 
   </style>
 </head>
 <body>
-  <nav>
+  <nav><button class="menu-toggle">☰</button>
+
     <ul>
       <li><a href="../en/ class="active"" >Home</a></li>
       <li><a href="studies/">Studies</a></li>
@@ -297,9 +328,17 @@ You can contact me directly to learn more about my work, academic background, an
       <a href="projects/">Projects</a>|
       <a href="activities/">Activities</a>
   </footer>
+<script>
+  const toggleBtn = document.querySelector('.menu-toggle');
+  const navList = document.querySelector('nav ul');
+  toggleBtn.addEventListener('click', () => {
+    navList.classList.toggle('active');
+  });
+</script>
 
 </body>
 </html>
+
 
 
 
