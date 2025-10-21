@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" href="visage.png" type="image/png">
+  <meta charset="UTF-8">
+  <title>Studies</title>
+  <style>
+    /* ===== Style général ===== */
+    body {
+      margin: 0;
+      font-family: 'Poppins', Arial, sans-serif;
+      color: white;
+      background-image: url('https://www.hec.edu/sites/default/files/inline-images/conference-societe-generale.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0,0,0,0.4);
+      z-index: -1;
+    }
+
+    /* ===== MENU GLASS & GLOW ===== */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(15, 15, 20, 0.45);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      opacity: 0;
+      transform: translateY(-20px);
+      animation: fadeDown 4s ease forwards;
+    }
+
+    @keyframes fadeDown {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      padding: 0;
+      gap: 45px;
+    }
+
+    nav ul li {
+      position: relative;
+    }
+
+    nav ul li a {
+      color: #e0e0e0;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 17px;
+      letter-spacing: 0.7px;
+      padding: 8px 0;
+      transition: all 0.3s ease;
+    }
+
+    nav ul li a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0%;
+      height: 2px;
+      background: linear-gradient(90deg, #00bfff, #007bff);
+      box-shadow: 0 0 8px #00bfff;
+      transition: width 0.3s ease;
+      border-radius: 4px;
+    }
+
+    nav ul li a:hover::after {
+      width: 100%;
+    }
+
+    nav ul li a:hover {
+      color: #00bfff;
+      text-shadow: 0 0 8px #00bfff;
+    }
+
+    nav ul li a.active {
+      color: #00bfff;
+      text-shadow: 0 0 8px #00bfff;
+    }
+
+    nav ul li a.active::after {
+      width: 100%;
+    }
+
+    @media (max-width: 750px) {
+      nav ul {
+        flex-direction: column;
+        gap: 20px;
+        background: rgba(0, 0, 0, 0.7);
+        padding: 20px 0;
+      }
+    }
+
+    /* ===== Slider du header ===== */
+ /* ===== Nouveau slider plus fluide ===== */
+header {
+  width: 100%;
+  height: 450px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* On place toutes les slides les unes sur les autres */
+.slides {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 2s ease-in-out;
+}
+
+/* On fait défiler les images une à une */
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 0;
+}
+
+/* Animation du fondu enchaîné */
+@keyframes fade {
+  0%   { opacity: 1; }
+  20%  { opacity: 1; }
+  33%  { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+/* Ordre d’apparition des images */
+.slide:nth-child(1) {
+  animation: fade 15s infinite;
+}
+.slide:nth-child(2) {
+  animation: fade 15s infinite;
+  animation-delay: 5s;
+}
+.slide:nth-child(3) {
+  animation: fade 15s infinite;
+  animation-delay: 10s;
+}
+
+
+    .caption {
+      position: absolute;
+      bottom: 30px;
+      left: 30px;
+      background: rgba(0,0,0,0.5);
+      padding: 15px 20px;
+      border-radius: 8px;
+    }
+
+    .caption h2 {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    .caption a {
+      display: inline-block;
+      margin-top: 10px;
+      color: white;
+      background: #007bff;
+      padding: 8px 15px;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+
+    .caption a:hover {
+      background: #0056b3;
+    }
+
+    @keyframes slider {
+      0% { transform: translateX(0); }
+      33% { transform: translateX(-100%); }
+      66% { transform: translateX(-200%); }
+      100% { transform: translateX(0); }
+    }
+
+    /* ===== Sections ===== */
+    section {
+      padding: 60px 20px;
+      text-align: center;
+      position: relative;
+    }
+
+    section img {
+      width: 300px;
+      height: 200px;
+      object-fit: cover;
+      margin: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+
+    section p {
+      max-width: 700px;
+      margin: 20px auto;
+      line-height: 1.6;
+      color: white;
+    }
+
+    /* ===== Logos ===== */
+    .logos {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .logo {
+      width: 180px;
+      height: 120px;
+      object-fit: contain;
+      border-radius: 10px;
+      padding: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .logo:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px rgba(255,255,255,0.5);
+    }
+
+    /* ===== Footer ===== */
+    footer {
+      background-color: rgba(0,0,0,0.8);
+      text-align: center;
+      padding: 30px 20px;
+      margin-top: 40px;
+    }
+
+    footer a {
+      color: #007bff;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+   .lang-switch {
+  text-align: right;
+  margin: 10px 20px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #fff;
+}
+
+.lang-switch a {
+  text-decoration: none;
+  color: #f0f0f0;
+  transition: color 0.3s ease;
+  margin: 0 5px;
+}
+
+.lang-switch a:hover {
+  color: #ffd700;
+}
+
+.lang-switch a.active {
+  color: #ffd700;
+  cursor: default;
+}
+body, div, section, article {
+  user-select: none;
+}
+
+  </style>
+</head>
+
+<body>
+  <!-- ===== MENU NAVIGATION ===== -->
+  <nav>
+    <ul>
+      <li><a href="index.html" >Home</a></li>
+      <li><a href="studies.html" class="active">Studies</a></li>
+      <li><a href="activities.html">Activities</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="sports.html">Sports</a></li>
+      <li><a href="contacts.html">Contact</a></li>
+    </ul>
+  </nav>
+  <header>
+    <div class="slides">
+      <div class="slide">
+        <img src="https://upload.wikimedia.org/wikipedia/fr/5/53/Logo_EDHEC_Business_School.svg" alt="Image 1">
+        <div class="caption">
+          <h2>EDHEC BUSINESS SCHOOL</h2>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Logo_Universit%C3%A9_Paris-Saclay_2019-12.svg/2560px-Logo_Universit%C3%A9_Paris-Saclay_2019-12.svg.png" alt="Image 2">
+        <div class="caption">
+          <h2>PARIS</h2>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="https://upload.wikimedia.org/wikipedia/fr/thumb/f/fa/Logo-univ-nice-cote-dazur.svg/2560px-Logo-univ-nice-cote-dazur.svg.png" alt="Université Côte d’Azur" alt="Image 3">
+        <div class="caption">
+          <h2>NICE</h2>
+        </div>
+      </div>
+    </div>
+
+  </header>
+<p>    <div class="lang-switch">
+  <a href="../etudes.html">🇫🇷 Français</a> |
+  <a href="studies.html" class="active">🇬🇧 English</a>
+</div></p>
+  <!-- ===== SECTIONS ===== -->
+
+  <section>
+    <p>Click on the logos below to view the courses studied.</p>
+    <h2><strong>EDHEC Business School — MSc in Financial Engineering</strong></h2>
+   <p>Ranked among the world’s leading business schools, EDHEC’s Financial Engineering program is recognized for its academic rigor and its excellence in bridging quantitative finance with real-world decision-making.<br>My academic journey at EDHEC Business School follows a coherent path of integrated learning — connecting data analysis, decision-making, and economic understanding of systems. <br>Here, I am deepening my knowledge in data science and statistical analysis while strengthening my foundations in managerial economics and decision modeling. The Master of Science in Financial Engineering is a demanding program focused on quantitative modeling and a refined understanding of economic and financial dynamics. 
+    This program allows me to advance my expertise in data science, statistical analysis, and managerial economics while developing an integrated approach that combines mathematical rigor with strategic thinking. EDHEC’s teaching philosophy emphasizes data as a decision-making tool and measurement as the cornerstone of any rational analysis. In this spirit, I strive to connect the precision of quantitative methods with the economic coherence of models — continuing a journey where theory and application mutually reinforce one another.
+   <br>For this program, you will be redirected. Click below</p>
+    <div class="logos">
+      <a href="https://www.edhec.edu/en/programmes/masters-degree/msc-finance/msc-in-financial-engineering" target="_blank"><img class="logo" src="https://upload.wikimedia.org/wikipedia/fr/5/53/Logo_EDHEC_Business_School.svg" alt="EDHEC Business School"></a>
+    </div>
+  </section>
+
+  <section>
+    <h2><strong>Université Côte d’Azur — Certification in Mathematics for Engineering
+</strong></h2>
+    <p>In parallel, I am pursuing a certification in Mathematics for Engineering at Université Côte d’Azur (Sophia Antipolis), as a prelude to the National Engineering Degree in Applied Mathematics.
+This program serves as an essential preparatory stage, aimed at strengthening my command of analytical and computational tools before entering the engineering cycle.
+It emphasizes a deep understanding of mathematical structures and their practical applications — from differential calculus to numerical analysis, including the foundations of stochastic calculus.
+This training allows me to bridge theory and practice by exploring how mathematical models can describe, predict, and optimize the behavior of complex systems.
+In this sense, it represents a natural continuation of my academic path, establishing the technical and conceptual foundations required for pursuing the dual degree in Applied Mathematics Engineering and for deepening my expertise in quantitative modeling.
+</p>
+    <div class="logos">
+      <a href="univnice.html"><img class="logo" src="https://upload.wikimedia.org/wikipedia/fr/thumb/f/fa/Logo-univ-nice-cote-dazur.svg/2560px-Logo-univ-nice-cote-dazur.svg.png" alt="Université Côte d’Azur"></a>
+    </div>
+  </section>
+
+  <section>
+    <h2><strong>Université Paris-Saclay — Bachelor’s Degree in Mathematics
+</strong></h2>
+    <p>
+My academic journey at Université Paris-Saclay marked a decisive stage in my scientific training, exposing me to the theoretical foundations of modern mathematics and their economic extensions.  
+I studied measure theory, Lebesgue integration, and topology — conceptual frameworks that enable a formal and structured approach to complexity.  
+These courses were complemented by an in-depth introduction to macroeconomics and microeconomics, which allowed me to connect mathematical rigor with an understanding of economic and decision-making dynamics.  
+Through this program, I strengthened my abstract analytical skills and mastery of stochastic calculus, while developing a particular sensitivity to the logical consistency of models and their interpretation in real-world contexts.
+</p>
+    <div class="logos">
+      <a href="univsaclay.html"><img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Logo_Universit%C3%A9_Paris-Saclay_2019-12.svg/2560px-Logo_Universit%C3%A9_Paris-Saclay_2019-12.svg.png" alt="Université Paris-Saclay"></a>
+    </div>
+  </section>
+
+  <section>
+    <h2><strong>ENSIIE</strong></h2>
+    <p>My time at ENSIIE allowed me to strengthen a solid foundation in logic, applied mathematics, and programming within an environment where technical rigor meets analytical modeling.
+The curriculum emphasizes an in-depth study of probability, data analysis, and regression models while integrating an algorithmic dimension through development in C, C++, and Java.
+These courses enabled me to gain a deep understanding of formal structures and their translation into object-oriented programming, as well as a natural fluency in data manipulation and interpretation.
+This program, focused on precision in reasoning and mastery of quantitative tools, provided me with both a theoretical and pragmatic approach to solving complex problems — a method I continuously strive to refine across all the fields I explore.
+</p>
+    <div class="logos">
+      <a href="ensiie.html"><img class="logo" src="https://www.ensiie.fr/sites/default/files/ensiie_logo_fx_RVB_0.png" alt="ENSIIE"></a>
+    </div>
+  </section>
+
+  <section>
+    <h2><strong>ESTEM Casablanca — Scientific Classes</strong></h2>
+    <p>My studies at ESTEM Casablanca formed the foundation of my analytical and scientific approach.
+Within this multidisciplinary program focused on mathematics and physics, I developed a rigorous command of reasoning methods — from differential calculus to mechanics, thermodynamics, and the fundamentals of computer science.
+This preparation trained me in precision, intellectual endurance, and information synthesis — essential qualities when approaching complex systems from a quantitative perspective.
+The experience also taught me discipline and consistency in effort: success often depends not only on knowledge itself but on the ability to mobilize it at the right moment.
+</p>
+    <div class="logos">
+      <a href="estem.html"><img class="logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMrg1NOORj7L_VRpOXicIhUxUyMmg_wl4OOQ&s" alt="ESTEM Casablanca"></a>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <p>&copy; 2025 Elie AMIEN</p>
+    <p>
+      <a href="index.html">Home</a> |
+      <a href="contacts.html">Contact</a>|
+      <a href="studies.html">Studies</a> |
+      <a href="projects.html">Projects</a>|
+      <a href="activities.html">Activities</a>
+         </p>
+    </p>
+  </footer>
+
+</body>
+</html>
+
+
+
+

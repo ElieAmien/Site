@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <link rel="icon" href="visage.png" type="image/png">
+  <meta charset="UTF-8">
+  <title>Études</title>
+  <style>
+    /* ===== Style général ===== */
+    body {
+      margin: 0;
+      font-family: 'Poppins', Arial, sans-serif;
+      color: white;
+      background-image: url('https://www.hec.edu/sites/default/files/inline-images/conference-societe-generale.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0,0,0,0.4);
+      z-index: -1;
+    }
+
+    /* ===== MENU GLASS & GLOW ===== */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(15, 15, 20, 0.45);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      opacity: 0;
+      transform: translateY(-20px);
+      animation: fadeDown 1s ease forwards;
+    }
+
+    @keyframes fadeDown {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      padding: 0;
+      gap: 45px;
+    }
+
+    nav ul li {
+      position: relative;
+    }
+
+    nav ul li a {
+      color: #e0e0e0;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 17px;
+      letter-spacing: 0.7px;
+      padding: 8px 0;
+      transition: all 0.3s ease;
+    }
+
+    nav ul li a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0%;
+      height: 2px;
+      background: linear-gradient(90deg, #00bfff, #007bff);
+      box-shadow: 0 0 8px #00bfff;
+      transition: width 0.4s ease;
+      border-radius: 4px;
+    }
+
+    nav ul li a:hover::after {
+      width: 100%;
+    }
+
+    nav ul li a:hover {
+      color: #00bfff;
+      text-shadow: 0 0 8px #00bfff;
+    }
+
+    nav ul li a.active {
+      color: #00bfff;
+      text-shadow: 0 0 8px #00bfff;
+    }
+
+    nav ul li a.active::after {
+      width: 100%;
+    }
+
+    @media (max-width: 750px) {
+      nav ul {
+        flex-direction: column;
+        gap: 20px;
+        background: rgba(0, 0, 0, 0.7);
+        padding: 20px 0;
+      }
+    }
+
+    /* ===== Slider du header ===== */
+ /* ===== Nouveau slider plus fluide ===== */
+header {
+  width: 100%;
+  height: 450px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* On place toutes les slides les unes sur les autres */
+.slides {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 2s ease-in-out;
+}
+
+/* On fait défiler les images une à une */
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 0;
+}
+
+/* Animation du fondu enchaîné */
+@keyframes fade {
+  0%   { opacity: 1; }
+  20%  { opacity: 1; }
+  33%  { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+/* Ordre d’apparition des images */
+.slide:nth-child(1) {
+  animation: fade 15s infinite;
+}
+.slide:nth-child(2) {
+  animation: fade 15s infinite;
+  animation-delay: 5s;
+}
+.slide:nth-child(3) {
+  animation: fade 15s infinite;
+  animation-delay: 10s;
+}
+
+
+    .caption {
+      position: absolute;
+      bottom: 30px;
+      left: 30px;
+      background: rgba(0,0,0,0.5);
+      padding: 15px 20px;
+      border-radius: 8px;
+    }
+
+    .caption h2 {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    .caption a {
+      display: inline-block;
+      margin-top: 10px;
+      color: white;
+      background: #007bff;
+      padding: 8px 15px;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+
+    .caption a:hover {
+      background: #0056b3;
+    }
+
+    @keyframes slider {
+      0% { transform: translateX(0); }
+      33% { transform: translateX(-100%); }
+      66% { transform: translateX(-200%); }
+      100% { transform: translateX(0); }
+    }
+
+    /* ===== Sections ===== */
+    section {
+      padding: 60px 20px;
+      text-align: center;
+      position: relative;
+    }
+
+    section img {
+      width: 300px;
+      height: 200px;
+      object-fit: cover;
+      margin: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+
+    section p {
+      max-width: 700px;
+      margin: 20px auto;
+      line-height: 1.6;
+      color: white;
+    }
+
+    /* ===== Logos ===== */
+    .logos {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .logo {
+      width: 180px;
+      height: 120px;
+      object-fit: contain;
+      border-radius: 10px;
+      padding: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .logo:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px rgba(255,255,255,0.5);
+    }
+
+    /* ===== Footer ===== */
+    footer {
+      background-color: rgba(0,0,0,0.8);
+      text-align: center;
+      padding: 30px 20px;
+      margin-top: 40px;
+    }
+
+    footer a {
+      color: #007bff;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+.lang-switch {
+  text-align: right;
+  margin: 10px 20px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #fff;
+}
+
+.lang-switch a {
+  text-decoration: none;
+  color: #f0f0f0;
+  transition: color 0.3s ease;
+  margin: 0 5px;
+}
+
+.lang-switch a:hover {
+  color: #ffd700;
+}
+
+.lang-switch a.active {
+  color: #ffd700;
+  cursor: default;
+}
+body, div, section, article {
+  user-select: none;
+}
+
+  </style>
+</head>
+
+<body>
+  <!-- ===== MENU NAVIGATION ===== -->
+  <nav>
+    <ul>
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="etudes.html" class="active">Études</a></li>
+      <li><a href="engagements.html">Engagements</a></li>
+      <li><a href="travaux.html">Travaux</a></li>
+      <li><a href="sports.html">Sports</a></li>
+      <li><a href="contacts.html">Contact</a></li>
+    </ul>
+  </nav>
+  <header>
+    <div class="slides">
+      <div class="slide">
+        <img src="https://upload.wikimedia.org/wikipedia/fr/5/53/Logo_EDHEC_Business_School.svg" alt="Image 1">
+        <div class="caption">
+          <h2>EDHEC BUSINESS SCHOOL</h2>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Logo_Universit%C3%A9_Paris-Saclay_2019-12.svg/2560px-Logo_Universit%C3%A9_Paris-Saclay_2019-12.svg.png" alt="Image 2">
+        <div class="caption">
+          <h2>PARIS</h2>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="https://upload.wikimedia.org/wikipedia/fr/thumb/f/fa/Logo-univ-nice-cote-dazur.svg/2560px-Logo-univ-nice-cote-dazur.svg.png" alt="Université Côte d’Azur" alt="Image 3">
+        <div class="caption">
+          <h2>NICE</h2>
+        </div>
+      </div>
+    </div>
+  </header>
+<p>          <div class="lang-switch">
+  <a href="etudes.html" class="active">🇫🇷 Français</a> |
+  <a href="en/studies.html">🇬🇧 English</a>
+</div></p>
+  <!-- ===== SECTIONS ===== -->
+
+  <section>
+    <p>Cliquez sur les logos ci-dessous afin de voir les modules étudiés</p>
+    <h2><strong>EDHEC Business School — MSc in Financial Engineering</strong></h2>
+   <p>Mon parcours à l’EDHEC Business School s’inscrit dans une continuité logique de formation : celle d’une approche intégrée entre l’analyse des données, la prise de décision et la compréhension économique des systèmes.
+J’y approfondis mes connaissances en sciences de données et en analyse statistique, tout en consolidant mes bases en économie managériale et en modélisation décisionnelle.
+Mon parcours à l’EDHEC Business School s’inscrit dans le cadre du Master of Science in Financial Engineering, une formation exigeante orientée vers la modélisation quantitative et la compréhension fine des dynamiques économiques et financières.
+Ce programme me permet d’approfondir mes compétences en sciences de données, en analyse statistique et en économie managériale, tout en développant une approche intégrée entre rigueur mathématique et réflexion stratégique.
+L’enseignement à l’EDHEC met en avant la donnée comme instrument de décision et la mesure comme fondement de toute analyse rationnelle.
+C’est dans cet esprit que je m’attache à relier la précision des outils quantitatifs à la cohérence économique des modèles, dans la continuité d’un parcours où la théorie et l’application s’éclairent mutuellement.
+<br>Pour ce programme, vous serez redirigés. Cliquez ci-dessous</p>
+    <div class="logos">
+            <a href="https://www.edhec.edu/en/programmes/masters-degree/msc-finance/msc-in-financial-engineering" target="_blank"><img class="logo" src="https://upload.wikimedia.org/wikipedia/fr/5/53/Logo_EDHEC_Business_School.svg" alt="EDHEC Business School"></a>
+    </div>
+  </section>
+
+  <section>
+    <h2><strong>Université Côte d’Azur — Certification en Mathématiques pour l’Ingénierie</strong></h2>
+    <p>En parallèle, je poursuis une certification en Mathématiques pour l’Ingénierie à l’Université Côte d’Azur (Sophia Antipolis), en préambule au Diplôme National d’Ingénieur en Mathématiques Appliquées.
+Ce programme constitue une étape préparatoire essentielle, destinée à consolider ma maîtrise des outils analytiques et computationnels avant l’entrée dans le cycle ingénieur.
+Il met l’accent sur la compréhension approfondie des structures mathématiques et de leurs applications concrètes — du calcul différentiel à l’analyse numérique, en passant par les fondements du calcul stochastique.
+Cette formation me permet de relier la théorie à la pratique en explorant la manière dont les modèles mathématiques peuvent décrire, prévoir et optimiser les comportements des systèmes complexes.
+En ce sens, elle s’inscrit dans la continuité de mon parcours, en préparant les bases techniques et conceptuelles nécessaires à la poursuite du double diplôme d’ingénieur en Mathématiques Appliquées et à l’approfondissement de la modélisation quantitative.
+</p>
+    <div class="logos">
+      <a href="univnice.html"><img class="logo" src="https://upload.wikimedia.org/wikipedia/fr/thumb/f/fa/Logo-univ-nice-cote-dazur.svg/2560px-Logo-univ-nice-cote-dazur.svg.png" alt="Université Côte d’Azur"></a>
+    </div>
+  </section>
+
+  <section>
+    <h2><strong>Université Paris-Saclay — Bachelor en Mathématiques</strong></h2>
+    <p>Mon parcours à l’Université Paris-Saclay a marqué une étape décisive dans ma formation scientifique, en me confrontant aux fondements théoriques des mathématiques modernes et à leurs prolongements économiques.
+J’y ai étudié la théorie de la mesure, l’intégration de Lebesgue et la topologie, autant de cadres conceptuels permettant d’aborder la complexité sous un angle formel et structuré.
+Ces enseignements se sont complétés par une introduction approfondie à la macroéconomie et à la microéconomie, qui m’ont permis d’articuler la rigueur mathématique à la compréhension des dynamiques économiques et décisionnelles.
+À travers cette formation, j’ai renforcé mes capacités d’analyse abstraite et ma maîtrise du calcul stochastique, tout en développant une sensibilité particulière à la cohérence logique des modèles et à leur interprétation dans des contextes réels.
+</p>
+    <div class="logos">
+      <a href="univsaclay.html"><img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Logo_Universit%C3%A9_Paris-Saclay_2019-12.svg/2560px-Logo_Universit%C3%A9_Paris-Saclay_2019-12.svg.png" alt="Université Paris-Saclay"></a>
+    </div>
+  </section>
+
+  <section>
+    <h2><strong>ENSIIE</strong></h2>
+    <p>Mon passage à l’ENSIIE m’a permis de consolider une base solide en logique, mathématiques appliquées et programmation, au sein d’un environnement où la rigueur technique se combine à la modélisation analytique.
+Le cursus met l’accent sur l’étude approfondie des probabilités, de l’analyse de données et des modèles de régression, tout en intégrant la dimension algorithmique à travers le développement en C, C++ et Java.
+Ces enseignements m’ont permis d’acquérir une compréhension fine des structures formelles et de leur transposition dans la programmation orientée objet, ainsi qu’une aisance naturelle avec la manipulation et l’interprétation des données.
+Cette formation, centrée sur la précision du raisonnement et la maîtrise des outils quantitatifs, m’a donné une approche à la fois théorique et pragmatique de la résolution de problèmes complexes — une méthode que je cherche à perfectionner dans tous les domaines que j’explore
+</p>
+    <div class="logos">
+      <a href="ensiie.html"><img class="logo" src="https://www.ensiie.fr/sites/default/files/ensiie_logo_fx_RVB_0.png" alt="ENSIIE"></a>
+    </div>
+  </section>
+
+  <section>
+    <h2><strong>ESTEM Casablanca — Classes Préparatoires Scientifiques</strong></h2>
+    <p>Ma formation à l’ESTEM de Casablanca a constitué le socle de ma démarche analytique et scientifique.
+Au sein de ce cursus pluridisciplinaire centré sur les mathématiques et la physique, j’ai consolidé une maîtrise rigoureuse des méthodes de raisonnement, du calcul différentiel à la mécanique, en passant par la thermodynamique et les bases de l’informatique.
+Cette préparation m’a habitué à la précision, à l’endurance intellectuelle et à la synthèse de l’information — qualités essentielles lorsqu’il s’agit d’aborder des systèmes complexes sous un angle quantitatif.
+L’expérience m’a aussi appris la discipline et la constance dans l’effort : la réussite, souvent, ne dépend pas seulement des connaissances, mais de la capacité à les mobiliser au moment juste.
+</p>
+    <div class="logos">
+      <a href="estem.html"><img class="logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMrg1NOORj7L_VRpOXicIhUxUyMmg_wl4OOQ&s" alt="ESTEM Casablanca"></a>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <p>&copy; 2025 Elie AMIEN</p>
+    <p>
+      <a href="index.html">Accueil</a> |
+      <a href="contacts.html">Contact</a>
+    </p>
+  </footer>
+
+</body>
+</html>
+
+
+
+
+
+
+

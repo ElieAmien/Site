@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <link rel="icon" href="visage.png" type="image/png">
+  <meta charset="UTF-8">
+  <title>Mon Activité Sportive</title>
+  <style>
+    /* ===== Style général ===== */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: white;
+      background-image: url('foot2.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0,0,0,0.55);
+      z-index: -1;
+    }
+    header, footer {
+      text-align: center;
+      padding: 40px 20px;
+      background-color: rgba(0,0,0,0.8);
+    }
+    section {
+      padding: 50px 20px;
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    h1, h2 { color: #fff; }
+    p {
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+    footer a {
+      color: #007bff;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(15, 15, 20, 0.45);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      opacity: 0;
+      transform: translateY(-20px);
+      animation: fadeDown 4s ease forwards;
+    }
+
+    @keyframes fadeDown {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      padding: 0;
+      gap: 45px;
+    }
+
+    nav ul li {
+      position: relative;
+    }
+
+    nav ul li a {
+      color: #e0e0e0;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 17px;
+      letter-spacing: 0.7px;
+      padding: 8px 0;
+      transition: all 0.3s ease;
+    }
+
+    /* Ligne bleue animée sous les liens */
+    nav ul li a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0%;
+      height: 2px;
+      background: linear-gradient(90deg, #00bfff, #007bff);
+      box-shadow: 0 0 8px #00bfff;
+      transition: width 0.4s ease;
+      border-radius: 4px;
+    }
+
+    nav ul li a:hover::after {
+      width: 100%;
+    }
+
+    /* Effet glow au survol */
+    nav ul li a:hover {
+      color: #00bfff;
+      text-shadow: 0 0 8px #00bfff;
+    }
+
+    /* Lien actif (page actuelle) */
+    nav ul li a.active {
+      color: #00bfff;
+      text-shadow: 0 0 8px #00bfff;
+    }
+    nav ul li a.active::after {
+      width: 100%;
+    }
+
+    /* Responsive */
+    @media (max-width: 750px) {
+      nav ul {
+        flex-direction: column;
+        gap: 20px;
+        background: rgba(0, 0, 0, 0.7);
+        padding: 20px 0;
+      }
+    }
+
+    header {
+      text-align: center;
+      padding: 100px 20px;
+    }
+    .lang-switch {
+  text-align: right;
+  margin: 10px 20px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #fff;
+}
+
+.lang-switch a {
+  text-decoration: none;
+  color: #f0f0f0;
+  transition: color 0.3s ease;
+  margin: 0 5px;
+}
+
+.lang-switch a:hover {
+  color: #ffd700;
+}
+
+.lang-switch a.active {
+  color: #ffd700;
+  cursor: default;
+}
+body, div, section, article {
+  user-select: none;
+}
+
+  </style>
+</head>
+
+<body>
+    <nav>
+    <ul>
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="etudes.html">Études</a></li>
+      <li><a href="engagements.html">Engagements</a></li>
+      <li><a href="travaux.html">Travaux</a></li>
+      <li><a href="sports.html" class="active">Sports</a></li>
+      <li><a href="contacts.html">Contact</a></li>
+    </ul>
+  </nav>
+  <!-- ===== HEADER ===== -->
+  <header>
+    <img class="logo" src="edhecfc.png" width="10%" alt="Nom de l'école">
+<div class="lang-switch">
+  <a href="sports.html" class="active">🇫🇷 Français</a> |
+  <a href="en/sports.html">🇬🇧 English</a>
+</div>
+
+  </header>
+
+  <!-- ===== CONTENU PRINCIPAL ===== -->
+  <section>
+    <h2>Quant à mon activité,</h2>
+    <p>
+      <img class="logo" src="edhecfc.png" width="25%" alt="Nom de l'école"><br>
+Le sport tient une place centrale dans mon parcours, non seulement comme activité physique, mais surtout comme école de méthode, de discipline et de stratégie.
+
+Je pratique le football à 11 au sein de l’EDHEC FC, et ai eu la chance d’être détecté et sélectionné pour représenter l’école lors des compétitions universitaires nationales et inter-écoles. Cette année, notre équipe participera au Championnat Universitaire, à la Coupe de France ainsi qu’au Tournoi Saint-Gobain, l’un des événements étudiants les plus prestigieux d’Europe.
+
+Ces tournois rassemblent chaque année des étudiants issus des meilleures écoles françaises et européennes, autour d’un esprit de compétition soutenu par les grandes institutions de la finance, du conseil et de l’industrie : <strong> Paribas, Société Générale, J.P. Morgan, Crédit Agricole CIB, Rothschild & Co, EY, Deutsche Bank, Mazars, ou encore Saint-Gobain</strong>.<br><br> Leur présence illustre la proximité entre les valeurs sportives — performance, constance, intelligence collective — et celles du monde professionnel.
+
+Évoluer dans cet environnement me permet de mesurer chaque jour l’importance de la coordination, de la lecture du jeu et de la gestion du rythme — autant d’aptitudes qui se transposent naturellement à la réflexion stratégique et à la prise de décision dans des contextes complexes.
+
+<br>Parallèlement, ma pratique du golf nourrit un rapport plus introspectif à la performance. C’est un sport d’analyse et de précision, où chaque geste requiert une anticipation fine, une évaluation du risque et un contrôle du tempo. J’y retrouve les mêmes principes qui structurent ma manière d’aborder les problèmes théoriques : observer, ajuster, et exécuter avec rigueur.
+
+<br>À travers le football comme le golf, je cultive la lucidité dans l’action, la résilience dans l’effort et la maîtrise sous pression — trois dimensions que je considère comme fondamentales, tant sur le terrain que dans toute démarche analytique et quantitative.
+    <br> <img src="FOOT.jpg"; width="100%"; alt="Photo de notre équipe">
+</p>
+
+
+
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <p>&copy; 2025 Elie AMIEN</p>
+    <p>
+      <a href="index.html">Accueil</a> |
+      <a href="etudes.html">Études</a>|
+      <a href="engagements.html">Engagements</a>|
+      <a href="travaux.html">Travaux</a>|
+      <a href="sports.html" class="active">Sports</a>|
+      <a href="contacts.html">Contacts</a>|
+    </p>
+  </footer>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

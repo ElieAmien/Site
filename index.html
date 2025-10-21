@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <link rel="icon" href="visage.png" type="image/png">
+  <meta charset="UTF-8">
+  <title>Elie AMIEN</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    /* === BASE === */
+    :root{
+      --accent:#0d6efd;
+      --bg-overlay:rgba(0,0,0,0.45);
+      --card-bg:rgba(0,0,0,0.35);
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family:Arial, sans-serif;
+      color:white;
+      background-image:url('https://images.unsplash.com/photo-1602536422477-f56ba7493ca6?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8d2FsbCUyMHN0cmVldHxlbnwwfHwwfHx8MA%3D%3D&fm=jpg&q=60&w=3000');
+      background-size:cover;
+      background-position:center;
+      background-attachment:fixed;
+      line-height:1.6;
+    }
+    body::before{
+      content:"";
+      position:fixed; inset:0;
+      background:var(--bg-overlay);
+      z-index:-1;
+    }
+
+    a{color:white;text-decoration:none}
+    a.btn{
+      display:inline-block; padding:.6rem 1rem;
+      background:var(--accent);
+      border-radius:6px;
+      transition:filter .3s;
+    }
+    a.btn:hover{filter:brightness(.9)}
+
+    /* === HEADER SLIDER === */
+    header{position:relative;height:420px;overflow:hidden}
+    .slides{display:flex;width:500%;animation:slider 40s infinite}
+    .slide{position:relative;width:100%;flex-shrink:0}
+    .slide img{width:100%;height:420px;object-fit:cover}
+    .caption{
+      position:absolute;bottom:40px;left:40px;
+      background:rgba(0,0,0,0.5);
+      padding:15px 20px;border-radius:8px;
+    }
+    .caption h2{margin:0 0 5px}
+    @keyframes slider{
+      0%{transform:translateX(0)}
+      20%{transform:translateX(-100%)}
+      40%{transform:translateX(-200%)}
+      60%{transform:translateX(-300%)}
+      80%{transform:translateX(-400%)}
+      100%{transform:translateX(0)}
+    }
+
+    /* === SECTIONS === */
+    section{
+      padding:60px 20px;
+      text-align:center;
+      background:var(--card-bg);
+      margin:40px auto;
+      max-width:900px;
+      border-radius:10px;
+      backdrop-filter:blur(2px);
+    }
+    section h2{margin-bottom:20px}
+    section img{
+      width:300px;height:200px;
+      object-fit:cover;border-radius:10px;
+      margin:10px;
+    }
+
+    /* === FOOTER === */
+    footer{
+      background:rgba(0,0,0,0.7);
+      text-align:center;
+      padding:25px 15px;
+      margin-top:40px;
+    }
+    footer a{color:#0d6efd;margin:0 10px}
+    footer a:hover{text-decoration:underline}
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(15, 15, 20, 0.45);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      opacity: 0;
+      transform: translateY(-20px);
+      animation: fadeDown 4s ease forwards;
+    }
+
+    @keyframes fadeDown {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      padding: 0;
+      gap: 45px;
+    }
+
+    nav ul li {
+      position: relative;
+    }
+
+    nav ul li a {
+      color: #e0e0e0;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 17px;
+      letter-spacing: 0.7px;
+      padding: 8px 0;
+      transition: all 0.3s ease;
+    }
+
+    /* Ligne bleue animée sous les liens */
+    nav ul li a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0%;
+      height: 2px;
+      background: linear-gradient(90deg, #00bfff, #007bff);
+      box-shadow: 0 0 8px #00bfff;
+      transition: width 0.4s ease;
+      border-radius: 4px;
+    }
+
+    nav ul li a:hover::after {
+      width: 100%;
+    }
+
+    /* Effet glow au survol */
+    nav ul li a:hover {
+      color: #00bfff;
+      text-shadow: 0 0 8px #00bfff;
+    }
+
+    /* Lien actif (page actuelle) */
+    nav ul li a.active {
+      color: #00bfff;
+      text-shadow: 0 0 8px #00bfff;
+    }
+    nav ul li a.active::after {
+      width: 100%;
+    }
+
+    /* Responsive */
+    @media (max-width: 750px) {
+      nav ul {
+        flex-direction: column;
+        gap: 20px;
+        background: rgba(0, 0, 0, 0.7);
+        padding: 20px 0;
+      }
+    }
+
+header.hero{
+  position:relative;height:420px;overflow:hidden;
+  display:grid;place-items:center;text-align:center;
+}
+header.hero img.banner{width:100%;height:100%;object-fit:cover}
+header.hero .overlay{
+  position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.15),rgba(0,0,0,.6));
+}
+header.hero .intro{
+  position:absolute;max-width:900px;padding:0 16px;
+}
+header.hero h1{font-size:2.2rem;margin:0 0 8px}
+header.hero p{opacity:.95;margin:0 auto;}
+    .lang-switch {
+  text-align: right;
+  margin: 10px 20px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #fff;
+}
+
+.lang-switch a {
+  text-decoration: none;
+  color: #f0f0f0;
+  transition: color 0.3s ease;
+  margin: 0 5px;
+}
+
+.lang-switch a:hover {
+  color: #ffd700;
+}
+
+.lang-switch a.active {
+  color: #ffd700;
+  cursor: default;
+}
+body, div, section, article {
+  user-select: none;
+}
+
+  </style>
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="index.html" class="active">Accueil</a></li>
+      <li><a href="etudes.html">Études</a></li>
+      <li><a href="engagements.html">Engagements</a></li>
+      <li><a href="travaux.html">Travaux</a></li>
+      <li><a href="sports.html">Sports</a></li>
+      <li><a href="contacts.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- === HEADER AVEC SLIDES CLIQUABLES === -->
+<header class="hero">
+    <img src="banniere.jpg" alt="Bannière" class="banner">
+  </header>
+<p>  <div class="lang-switch">
+  <a href="index.html" class="active">🇫🇷 Français</a> |
+  <a href="en/index.html">🇬🇧 English</a>
+</div></p>
+  <!-- === SECTIONS CIBLÉES === -->
+  <section id="etudes">
+    <h2>Études</h2>
+    <p>Mon parcours académique s’est construit autour de disciplines exigeantes, alliant raisonnement mathématique, sens critique et capacité d’analyse.
+L’étude approfondie de concepts théoriques et leur mise en pratique m’ont permis de développer une méthode de travail précise, structurée et orientée vers la résolution de problèmes complexes.
+Ces années de formation m’ont surtout appris à comprendre les mécanismes d’un système, à anticiper ses évolutions et à en mesurer les risques — des réflexes que je cultive dans toutes mes activités.</p>
+    <a href="etudes.html"><img src="https://www.hec.edu/sites/default/files/inline-images/conference-societe-generale.jpg" alt="Études"></a><a href="etudes.html"><img src="https://media.istockphoto.com/id/936903524/fr/vectoriel/tableau-noir-portant-des-formules-scientifiques-et-calculs-en-physique-et-en-math%C3%A9matiques.jpg?s=612x612&w=0&k=20&c=uxjlApgJPgCieXbKlgSGwMixd91Z0Nfl-g-Jot9PtK8=" alt="Études"></a>
+  </section>
+
+  <section id="travaux">
+    <h2>Travaux Et Certifications</h2>
+    <p>Les projets auxquels j’ai pris part m’ont conduit à manipuler des données, à modéliser des situations complexes et à rechercher des solutions optimales à des problèmes concrets.
+Chaque travail a été pour moi l’occasion d’allier théorie et application, en veillant à maintenir une cohérence entre la rigueur du raisonnement et la clarté des résultats.
+Ces expériences m’ont sensibilisé à l’importance d’un raisonnement structuré et d’une démarche empirique fondée sur la mesure et l’analyse</p>
+    <a href="travaux.html"><img src="https://assets.bwbx.io/images/users/iqjWHBFdfxIU/ixYz6pyxPZkU/v1/-1x-1.webp" alt="Travaux"></a>
+  </section>
+
+    <section id="engagements">
+    <h2>Engagements & Expériences</h2>
+    <p>Les différentes expériences auxquelles j’ai participé m’ont appris à évoluer dans des contextes réels, où la réactivité et la prise de décision rapide sont essentielles.
+Ces engagements m’ont permis d’expérimenter la coordination d’équipe, la planification de projets et la communication stratégique.
+J’y ai aussi découvert le goût du défi : analyser une situation, évaluer les options, choisir la plus efficace et en assumer pleinement les résultats.</p>
+    <a href="engagements.html"><img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7" alt="Engagements"><a><a href="engagements.html"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRf5sGwB8xUN-5Zj0Mbl2valJr52Ni_eTHx5g&s" alt="Engagements"><a>
+  </section>
+      
+  <section id="sports">
+    <h2>Sports</h2>
+    <p>Golf, Football? La pratique sportive m’apporte un équilibre essentiel entre performance, discipline et esprit d’équipe.
+Elle m’a appris à canaliser la pression, à prendre des décisions rapides dans un cadre compétitif et à maintenir une concentration constante même dans l’incertitude.
+Ces habitudes nourrissent ma manière d’aborder les défis intellectuels avec la même exigence que ceux du terrain.</p>
+    <a href="sports.html"><img src="Footpsg.jpg" alt="Sports"></a>
+  </section>
+
+  <section id="contacts">
+    <h2>Contacts</h2>
+    <p>Je reste disponible pour tout échange, collaboration ou opportunité de projet.
+Curieux et à l’écoute, j’apprécie les discussions où les idées s’affinent, où les logiques se confrontent et où de nouvelles perspectives émergent.
+Vous pouvez me contacter directement pour en savoir plus sur mes travaux, mes parcours et mes centres d’intérêt.</p>
+    <a href="contacts.html"><img src="https://i.ytimg.com/vi/DuBrreMiZlA/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCvdZgBqS7N-rCwX2fYcfkEnTk3nQ" alt="Contacts"></a>
+  </section>
+
+  <!-- === FOOTER === -->
+  <footer>
+    <p>&copy; 2025 — Elie AMIEN</p>
+    <a href="etudes.html">Études</a> |
+    <a href="engagements.html">Engagements</a> |
+    <a href="travaux.html">Travaux</a> |
+    <a href="sports.html">Sports</a> |
+    <a href="contacts.html">Contacts</a>
+  </footer>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
