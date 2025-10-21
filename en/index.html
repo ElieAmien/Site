@@ -235,19 +235,58 @@ body, div, section, article {
   cursor: pointer;
 }
 
+/* --- VERSION MOBILE --- */
 @media (max-width: 750px) {
   nav ul {
-    display: none; /* caché par défaut sur mobile */
+    display: none; /* on cache le menu par défaut */
     flex-direction: column;
-    gap: 20px;
     background: rgba(0, 0, 0, 0.85);
+    gap: 20px;
     padding: 20px 0;
   }
+
   nav ul.active {
-    display: flex; /* affiché quand on clique */
+    display: flex; /* on affiche quand actif */
   }
+
   .menu-toggle {
     display: block;
+  }
+}
+@media (max-width: 750px) {
+  header {
+    height: 60vh;
+    min-height: 280px;
+  }
+}
+@media (max-width: 750px) {
+  section {
+    width: 90%;
+    margin: 20px auto;
+  }
+}
+@media (max-width: 750px) {
+  body, section, article, div {
+    user-select: text;
+  }
+}
+@media (max-width: 750px) {
+  section img {
+    width: 100%;
+    height: auto;
+    max-width: 320px;
+  }
+}
+@media (max-width: 750px) {
+  body {
+    font-size: 16px;
+    -webkit-text-size-adjust: 100%;
+    padding-bottom: 60px;
+  }
+
+  a.btn {
+    font-size: 15px;
+    padding: 0.6rem 1rem;
   }
 }
 
@@ -255,6 +294,7 @@ body, div, section, article {
 </head>
 <body>
   <nav><button class="menu-toggle">☰</button>
+
 
     <ul>
       <li><a href="../en/ class="active"" >Home</a></li>
@@ -328,6 +368,7 @@ You can contact me directly to learn more about my work, academic background, an
       <a href="projects/">Projects</a>|
       <a href="activities/">Activities</a>
   </footer>
+
 <script>
   const toggleBtn = document.querySelector('.menu-toggle');
   const navList = document.querySelector('nav ul');
@@ -338,6 +379,7 @@ You can contact me directly to learn more about my work, academic background, an
 
 </body>
 </html>
+
 
 
 
