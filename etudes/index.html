@@ -292,13 +292,72 @@ header {
 body, div, section, article {
   user-select: none;
 }
+.menu-toggle {
+  display: none;
+  position: fixed;
+  top: 12px;
+  right: 18px;
+  font-size: 26px;
+  background: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 10px;
+  z-index: 1100;
+  cursor: pointer;
+}
+
+@media (max-width: 750px) {
+  nav ul {
+    display: none;
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.85);
+    gap: 20px;
+    padding: 20px 0;
+  }
+  nav ul.active { display: flex; }
+  .menu-toggle { display: block; }
+}
+@media (max-width: 750px) {
+  header {
+    height: 60vh;
+    min-height: 280px;
+  }
+
+  .slide img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  section {
+    width: 90%;
+    margin: 20px auto;
+  }
+
+  section img, .logo {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+  }
+
+  body, section, article, div {
+    user-select: text;
+  }
+
+  body {
+    font-size: 16px;
+    -webkit-text-size-adjust: 100%;
+    padding-bottom: 60px;
+  }
+}
 
   </style>
 </head>
 
 <body>
   <!-- ===== MENU NAVIGATION ===== -->
-  <nav>
+  <nav><button class="menu-toggle">☰</button>
     <ul>
       <li><a href="../">Accueil</a></li>
       <li><a href="../etudes/" class="active">Études</a></li>
@@ -408,9 +467,16 @@ L’expérience m’a aussi appris la discipline et la constance dans l’effort
       <a href="../contacts/>Contact</a>
     </p>
   </footer>
-
+<script>
+  const toggleBtn = document.querySelector('.menu-toggle');
+  const navList = document.querySelector('nav ul');
+  toggleBtn.addEventListener('click', () => {
+    navList.classList.toggle('active');
+  });
+</script>
 </body>
 </html>
+
 
 
 
