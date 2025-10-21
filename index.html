@@ -220,10 +220,80 @@ header.hero p{opacity:.95;margin:0 auto;}
 body, div, section, article {
   user-select: none;
 }
+.menu-toggle {
+  display: none;
+  position: fixed;
+  top: 12px;
+  right: 18px;
+  font-size: 26px;
+  background: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 10px;
+  z-index: 1100;
+  cursor: pointer;
+}
+
+/* --- VERSION MOBILE --- */
+@media (max-width: 750px) {
+  nav ul {
+    display: none; /* on cache le menu par défaut */
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.85);
+    gap: 20px;
+    padding: 20px 0;
+  }
+
+  nav ul.active {
+    display: flex; /* on affiche quand actif */
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}
+@media (max-width: 750px) {
+  header {
+    height: 60vh;
+    min-height: 280px;
+  }
+}
+@media (max-width: 750px) {
+  section {
+    width: 90%;
+    margin: 20px auto;
+  }
+}
+@media (max-width: 750px) {
+  body, section, article, div {
+    user-select: text;
+  }
+}
+@media (max-width: 750px) {
+  section img {
+    width: 100%;
+    height: auto;
+    max-width: 320px;
+  }
+}
+@media (max-width: 750px) {
+  body {
+    font-size: 16px;
+    -webkit-text-size-adjust: 100%;
+    padding-bottom: 60px;
+  }
+
+  a.btn {
+    font-size: 15px;
+    padding: 0.6rem 1rem;
+  }
+}
   </style>
 </head>
 <body>
-  <nav>
+  <nav><button class="menu-toggle">☰</button>
+
     <ul>
       <li><a href="/Site/" class="active">Accueil</a></li>
       <li><a href="etudes/">Études</a></li>
@@ -292,9 +362,17 @@ Vous pouvez me contacter directement pour en savoir plus sur mes travaux, mes pa
     <a href="sports/">Sports</a> |
     <a href="contacts/">Contacts</a>
   </footer>
+<script>
+  const toggleBtn = document.querySelector('.menu-toggle');
+  const navList = document.querySelector('nav ul');
+  toggleBtn.addEventListener('click', () => {
+    navList.classList.toggle('active');
+  });
+</script>
 
 </body>
 </html>
+
 
 
 
